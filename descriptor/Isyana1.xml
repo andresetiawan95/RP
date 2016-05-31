@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mpeg7>
+<Description>
+<Model>
+<State>
+<Label>
+<Term termID="State0">
+<Name>State0</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State1">
+<Name>State1</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State2">
+<Name>State2</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State3">
+<Name>State3</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State4">
+<Name>State4</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State5">
+<Name>State5</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State6">
+<Name>State6</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State7">
+<Name>State7</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State8">
+<Name>State8</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State9">
+<Name>State9</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State10">
+<Name>State10</Name>
+</Term>
+</Label>
+</State>
+<State>
+<Label>
+<Term termID="State11">
+<Name>State11</Name>
+</Term>
+</Label>
+</State>
+</Model>
+</Description>
+</Mpeg7>
