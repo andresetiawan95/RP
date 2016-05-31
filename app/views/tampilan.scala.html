@@ -1,0 +1,42 @@
+@(output: String)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lagi</title>
+</head>
+<body>
+    <div id="lala"></div>
+    @output
+    <script>
+        /*var text = '{"employees":[' +
+         '{"type":"John","value":"http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#Tulus" },' +
+         '{"firstName":"Anna","lastName":"Smith" },' +
+         '{"firstName":"Peter","lastName":"Jones" }]}';*/
+        var text = @{Html(output)};
+        var lala=text.results;
+        lili = text.results.bindings;
+        flen = lili.length;
+        //var lala=text.results.bindings[0].subject.value;
+        /*lala.forEach(lala, function() {
+
+         });
+
+         table += '<tr><td>' + lalala.subject.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + lalala.writer.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + lalala.release.value + '</td></tr>';
+         table += '</tbody></table>';*/
+        var table = '<table><thead><th>Subject</th><th>Artist</th><th>Release Year</th><th>Centroid1</th><th>Centroid2</th><th>Centroid3</th><th>Jenis Class</th></thead><tbody>';
+        for (i =0; i<flen;i++) {
+            table += '<tr><td>' + lala.bindings[i].lagu.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + lala.bindings[i].artist.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + lala.bindings[i].release.value + '</td><td>'+ lala.bindings[i].centroid1.value +'</td><td>'+ lala.bindings[i].centroid2.value +'</td><td>'+ lala.bindings[i].centroid3.value +'</td><td>'+ lala.bindings[i].jenisclass.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') +'</td></tr>';
+        }
+        table +='</tbody></table>';
+        document.getElementById("lala").innerHTML =
+                table;
+                /*var table = '<table><thead><th>Subject</th><th>Writer</th><th>Release Year</th></thead><tbody>';
+                $.each(coba, function() {
+                    table += '<tr><td>' + this.subject.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + this.writer.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + + this.release.value + '</td><td>' + '</td></tr>';
+                });
+                table += '</tbody></table>';*/
+    </script>
+
+</body>
+</html>

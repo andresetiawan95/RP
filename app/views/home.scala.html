@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+  <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.versioned("stylesheets/creative.css")">
+  <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.versioned("stylesheets/animate.min.css")">
+  <link rel="stylesheet" href="@routes.Assets.versioned("font-awesome/css/font-awesome.min.css")" type="text/css">
+  <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/searchbox.css")" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <title>Lagu ontology</title>
+</head>
+  <body>
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="flexsearch--wrapper">
+            <form class="flexsearch--form" action="/search" method="get">
+              <div class="flexsearch--input-wrapper">
+                <input class="flexsearch--input2" type="search" name="lagu" placeholder="Ketik nama album, sepotong lirik, atau nama artis disini..">
+                <input class="flexsearch--submit" type="submit" value="&#128269;"/><br>
+                <input id="artist" type="radio" name="base" value="artist">
+                <label class="labelnavbar" for="artist">Berdasarkan Artis</label>
+                <input id="album" type="radio" name="base" value="album">
+                <label class="labelnavbar" for="album">Berdasarkan Album</label>
+                <input id="lyric" type="radio" name="base" value="lyric">
+                <label class="labelnavbar" for="lyric">Berdasarkan Lyric</label>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        </div>
+          <!-- /.navbar-collapse -->
+      </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+      <div class="header-content">
+        <div class="header-content-inner">
+          <h1>Cari Lagu, Album, dan Artis Favoritmu!</h1>
+          <hr>
+          <p>Dan dapatkan infonya. Langsung</p>
+          <div class="flexsearch--wrapper">
+              <form class="flexsearch--form" action="/search" method="get">
+                <div class="flexsearch--input-wrapper">
+                  <input class="flexsearch--input" type="search" name="lagu" placeholder="Ketik nama album, sepotong lirik, atau nama artis disini..">
+                  <input id="artist" type="radio" name="base" value="artist" required> Berdasarkan Artis
+                  <input id="album" type="radio" name="base" value="album"> Berdasarkan Album
+                  <input id="lyric" type="radio" name="base" value="lyric"> Berdasarkan Lyric <br>
+                </div>
+                <input class="btn btn-primary btn-xl page-scroll" type="submit" value="Submit"/>
+              </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<!--    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2 class="section-heading">We've got what you need!</h2>
+            <hr class="light">
+            <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+            <a href="#" class="btn btn-default btn-xl">Get Started!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <script src="@routes.Assets.versioned("js/jquery.js")"></script>
+    <script src="@routes.Assets.versioned("js/bootstrap.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/jquery.easing.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/jquery.fittext.js")"></script>
+    <script src="@routes.Assets.versioned("js/wow.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/creative.js")"></script>
+</html>

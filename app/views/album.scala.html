@@ -1,0 +1,104 @@
+@(output: String)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+    <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.versioned("stylesheets/creative.css")">
+    <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.versioned("stylesheets/animate.min.css")">
+      <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/searchbox.css")" type="text/css">
+      <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/tabel.css")" type="text/css">
+      <link rel="stylesheet" href="@routes.Assets.versioned("font-awesome/css/font-awesome.min.css")" type="text/css">
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <title>Lagu ontology</title>
+  </head>
+  <body>
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="/">Lagu Search Engine</a>
+          <div class="flexsearch--wrapper">
+            <form class="flexsearch--form" action="/search" method="get">
+              <div class="flexsearch--input-wrapper">
+                <input class="flexsearch--input2" type="search" name="lagu" placeholder="Ketik nama album, sepotong lirik, atau nama artis disini..">
+                <input class="flexsearch--submit" type="submit" value="&#128269;"/><br>
+                <input id="artist" type="radio" name="base" required value="artist">
+                <label class="labelnavbar" for="artist">Berdasarkan Artis</label>
+                <input id="album" type="radio" name="base" value="album">
+                <label class="labelnavbar" for="album">Berdasarkan Album</label>
+                <input id="lyric" type="radio" name="base" value="lyric">
+                <label class="labelnavbar" for="lyric">Berdasarkan Lyric</label>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2 class="section-heading">We've got what you need!</h2>
+            <hr class="light">
+            <div class="text-faded" id="judul"></div>
+            <div class="text-faded" id="lalala"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+            /*var text = '{"employees":[' +
+             '{"type":"John","value":"http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#Tulus" },' +
+             '{"firstName":"Anna","lastName":"Smith" },' +
+             '{"firstName":"Peter","lastName":"Jones" }]}';*/
+            var text = @{Html(output)};
+            var lala=text.results;
+            lili = text.results.bindings;
+            flen = lili.length;
+            //var lala=text.results.bindings[0].subject.value;
+            /*lala.forEach(lala, function() {
+
+             });
+
+             table += '<tr><td>' + lalala.subject.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + lalala.writer.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace('_', ' ') + '</td><td>' + lalala.release.value + '</td></tr>';
+             table += '</tbody></table>';*/
+            var tampung='';
+            //var keterangan;
+            var table = '<table id="table" class="table table-hover table-mc-light-blue"><thead><th>Judul lagu dalam Album</th><th>Artist</th><th>Release Year</th></thead><tbody>';
+            var heading;
+            for (i =0; i<flen;i++) {
+              heading = '<h2>' +lala.bindings[i].album.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace(/_/g, ' ')+'</h2>';
+              table +=
+                      '<tr><td>' +
+                      lala.bindings[i].lagu.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace(/_/g, ' ')+
+                      '</td><td>' + lala.bindings[i].artist.value.replace('http://www.semanticweb.org/andre/ontologies/2016/4/untitled-ontology-101#', '').replace(/_/g, ' ') +
+                      '</td><td>' + lala.bindings[i].release.value +
+                      '</td></tr>';
+            }
+            table += '</tbody></table>';
+            document.getElementById("judul").innerHTML = heading;
+        document.getElementById ("lalala").innerHTML = table;
+
+
+    </script>
+
+    <script src="@routes.Assets.versioned("js/jquery.js")"></script>
+    <script src="@routes.Assets.versioned("js/bootstrap.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/jquery.easing.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/jquery.fittext.js")"></script>
+    <script src="@routes.Assets.versioned("js/wow.min.js")"></script>
+    <script src="@routes.Assets.versioned("js/creative.js")"></script>
+</html>
